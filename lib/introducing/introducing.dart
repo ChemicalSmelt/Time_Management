@@ -282,7 +282,7 @@ class IntroductionScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 16),
                       ),
                       Text(
-                        '3.即時通知',
+                        '3.即時通知(BUG待修)',
                         style: TextStyle(fontSize: 16),
                       ),
                     ],
@@ -336,7 +336,7 @@ class IntroductionScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 16),
                       ),
                       Text(
-                        '3.即時通知',
+                        '3.即時通知(BUG待修)',
                         style: TextStyle(fontSize: 16),
                       ),
                       Text(
