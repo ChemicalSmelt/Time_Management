@@ -86,6 +86,7 @@ class _CalendarScreenState extends State<ShiftSchedule> {
         body:  Column(
             children: <Widget>[
               TableCalendar(
+                locale: 'zh_CN',
                 firstDay: DateTime.utc(2020, 1, 1),
                 lastDay: DateTime.utc(2030, 12, 31),
                 availableGestures: AvailableGestures.all,
