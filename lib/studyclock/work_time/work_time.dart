@@ -87,13 +87,10 @@ class _CountdownScreenState extends State<CountdownScreen> {
           child: Stack(
             alignment: Alignment.topCenter,
             children: [
-              Positioned(
-                top: 30,
-                child: CountdownCircle(
-                  totalTime: totalMinutes*60+totalSeconds,
-                  currentTime: currentTime,
-                  isCountingDown: isCountingDown,
-                ),
+              CountdownCircle(
+                totalTime: totalMinutes*60+totalSeconds,
+                currentTime: currentTime,
+                isCountingDown: isCountingDown,
               ),
             ],
           ),
