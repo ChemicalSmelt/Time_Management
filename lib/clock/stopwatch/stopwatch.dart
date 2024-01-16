@@ -12,11 +12,11 @@ class StopWatch extends StatefulWidget {
 class _StopWatchState extends State<StopWatch> {
   int _seconds = 0;
   bool _isRunning = false;
-  late Timer _timer;
+  Timer? _timer;
 
   @override
   void dispose() {
-    _timer.cancel();
+    _timer?.cancel();
     super.dispose();
   }
 
@@ -29,7 +29,7 @@ class _StopWatchState extends State<StopWatch> {
   }
 
   void _stopTimer() {
-    _timer.cancel();
+    _timer?.cancel();
   }
 
   void _resetTimer() {

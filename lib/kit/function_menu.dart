@@ -3,6 +3,9 @@ import '../schedule/schedule.dart';
 import '../studyclock/studyclock.dart';
 import '../shift/shift_schedule.dart';
 import '../clock/clock.dart';
+import '../introducing/introducing.dart';
+
+
 class FunctionMenu extends StatefulWidget{
   const FunctionMenu({super.key});
   @override
@@ -88,6 +91,20 @@ class _FunctionMenuState extends State<FunctionMenu>{
         title: Text('Cindy'),
         subtitle: Text("Click to start talk"),
         onTap: () => {debugPrint('Cindy')},
+      ),
+      ListTile(
+        leading: const Icon(Icons.chrome_reader_mode),
+        title: const Text('App介紹'),
+        subtitle: const Text("使用方式與介紹"),
+        onTap: () => {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => IntroductionScreen(),
+            ),
+                (route) => false,
+          )
+        },
       ),
       const AboutListTile(
         child: Text("About this App"),

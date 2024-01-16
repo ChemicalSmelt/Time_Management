@@ -85,74 +85,96 @@ class _CalendarScreenState extends State<ShiftSchedule> {
         drawer: FunctionMenu(),
         body:  Column(
             children: <Widget>[
-              TableCalendar(
-                firstDay: DateTime.utc(2020, 1, 1),
-                lastDay: DateTime.utc(2030, 12, 31),
-                availableGestures: AvailableGestures.all,
-                headerStyle: HeaderStyle(
-                  formatButtonDecoration: BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius: BorderRadius.circular(25),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Colors.purple, // 边框颜色
+                    width: 5, // 边框宽度
                   ),
-                  formatButtonTextStyle: TextStyle(color: Colors.white),
-
                 ),
-                calendarStyle: CalendarStyle(
-
-                  todayTextStyle:
-                  TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                  todayDecoration:
-                  BoxDecoration(
-                    color: Colors.lightBlueAccent,
-                    shape: BoxShape.circle,
-                  ),
-                  weekendTextStyle:
-                  TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red,
-                  ),
-                  outsideDaysVisible: false,
-                ),
-                focusedDay: _focusedDay,
-                calendarFormat: _calendarFormat,
-                onFormatChanged: (format) {
-                  if (_calendarFormat != format) {
-                    setState(() {
-                      _calendarFormat = format;
-                    });
-                  }
-                },
-                onPageChanged: (focusedDay) {
-                  setState(() {
-                    _focusedDay = focusedDay;
-                  });
-                },
-                selectedDayPredicate: (day) {
-                  return _selectedDays.any((selectedDay) => isSameDay(selectedDay, day));
-                },
-                onDaySelected: _onDaySelected,
-                calendarBuilders: CalendarBuilders(
-                  selectedBuilder: (context, date, _) {
-                    return  Container(
-                      margin: const EdgeInsets.all(4.0),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        shape: BoxShape.circle,
+                child: TableCalendar(
+                  locale: 'zh_CN',
+                  firstDay: DateTime.utc(2020, 1, 1),
+                  lastDay: DateTime.utc(2030, 12, 31),
+                  availableGestures: AvailableGestures.all,
+                  headerStyle: HeaderStyle(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(9),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Colors.purple, Colors.white70],
                       ),
-                      child: Text(
-                        '${date.day}',
-                        style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
-                      ),
-                    );
+                    ),
+                    formatButtonDecoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    formatButtonTextStyle: TextStyle(color: Colors.white),
+                  ),
+                  daysOfWeekHeight: 25,
+                  calendarStyle: CalendarStyle(
+                    weekendDecoration: BoxDecoration(
+                      color: Colors.red.withOpacity(0.1),
+                    ),
+                    todayTextStyle:
+                    TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    todayDecoration:
+                    BoxDecoration(
+                      color: Colors.lightBlueAccent,
+                      shape: BoxShape.circle,
+                    ),
+                    weekendTextStyle:
+                    TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
+                    outsideDaysVisible: false,
+                  ),
+                  focusedDay: _focusedDay,
+                  calendarFormat: _calendarFormat,
+                  onFormatChanged: (format) {
+                    if (_calendarFormat != format) {
+                      setState(() {
+                        _calendarFormat = format;
+                      });
+                    }
                   },
+                  onPageChanged: (focusedDay) {
+                    setState(() {
+                      _focusedDay = focusedDay;
+                    });
+                  },
+                  selectedDayPredicate: (day) {
+                    return _selectedDays.any((selectedDay) => isSameDay(selectedDay, day));
+                  },
+                  onDaySelected: _onDaySelected,
+                  calendarBuilders: CalendarBuilders(
+                    selectedBuilder: (context, date, _) {
+                      return  Container(
+                        margin: const EdgeInsets.all(4.0),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Text(
+                          '${date.day}',
+                          style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+                        ),
+                      );
+                    },
+
+                  ),
 
                 ),
-
               ),
+
 
               Container(
                 child: Column(
@@ -199,6 +221,5 @@ class _CalendarScreenState extends State<ShiftSchedule> {
             ]
         )
     );
-
   }
 }
