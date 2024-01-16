@@ -41,7 +41,7 @@ class Trip {
 class TripDatabase extends Sql{
   List<Trip> allTrip = [];
   TripDatabase() : super(dbname: "trip", currentTable: "trip", params: Trip.toColTitle()){
-    NotificationPlugin().init();
+    //NotificationPlugin().init();
   }
   void init() async {
 

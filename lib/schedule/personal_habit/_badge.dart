@@ -35,7 +35,7 @@ class NBadge extends StatelessWidget {
       ),
       padding: EdgeInsets.all(size * .15),
       child: Center(
-        child: SvgPicture.asset(
+        child: Image.asset(
           svgAsset,
         ),
       ),

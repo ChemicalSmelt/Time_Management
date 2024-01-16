@@ -1,5 +1,6 @@
 import '../../sqlite/sqlite.dart';
 import '../schedule_list/scheduleDateTime.dart';
+import '../../plugins/notification.dart';
 
 class Todo{
   final int id;
@@ -70,8 +71,16 @@ class TodoDatabase extends Sql{
     await super.update(temp).then(
             (value) {
           if(value is int){
-            allTodo[allTodo.indexWhere((element) => element.id == id)] = Todo(id: id, title: title, creationDate: date, isChecked: isChecked);
-            //allTrip.add(Trip(id: value, headerValue: title, expandedValue: content, date: date));
+            allTodo[allTodo.indexWhere((element) => element.id == id + 4000)] = Todo(id: id, title: title, creationDate: date, isChecked: isChecked);
+            if(isChecked){
+              NotificationPlugin().removeScheduledNotification(id + 4000);
+            }else{
+              NotificationPlugin().check(id + 4000).then((value){
+                if(value == false){
+                  NotificationPlugin().scheduleWeekly8And20Notification(id + 4000, title, "", DateTime.now().day, 8, 0);
+                }
+              });
+            }
           }
         });
   }
@@ -81,6 +90,7 @@ class TodoDatabase extends Sql{
             (value) {
           if(value is int){
             allTodo.add(Todo(id: value, title: title, creationDate: date, isChecked: isChecked));
+            NotificationPlugin().scheduleWeekly8And20Notification(value + 4000, title, "", DateTime.now().day, 8, 0);
           }
         });
   }
@@ -88,6 +98,7 @@ class TodoDatabase extends Sql{
   void remove(Todo todo){
     super.delete(todo.id);
     allTodo.removeWhere((Todo currentItem) => todo == currentItem);
+    NotificationPlugin().removeScheduledNotification(todo.id + 4000);
   }
 
 

@@ -260,7 +260,7 @@ class PieChartSample3State extends State<PieChartSample3> {
             shadows: shadows,
           ),
           badgeWidget: NBadge(
-            'assets/icons/ophthalmology-svgrepo-com.svg',
+            s[habit.interestCategory]!,
             size: widgetSize,
             borderColor: Colors.black,
           ),

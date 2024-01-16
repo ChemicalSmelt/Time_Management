@@ -7,9 +7,11 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'schedule/personal_habit/personal_habit.dart';
+import 'plugins/notification.dart';
 
 
-void main() {
+void main() async{
+  NotificationPlugin().init();
   initializeDateFormatting().then((_) => runApp(const MyApp()));
 }
 

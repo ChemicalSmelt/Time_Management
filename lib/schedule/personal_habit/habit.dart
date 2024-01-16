@@ -7,11 +7,17 @@ class Habit{
   final String name;
   final InterestCategory interestCategory;
 
+  int? sid;
+  Habit.withId({required this.sid, required this.name, required this.startTime, required this.endTime, required this.interestCategory});
   Habit({required this.name, required this.startTime, required this.endTime, required this.interestCategory});
 
+  setSid(int id){
+    sid = id;
+  }
 
   static fromJson(Map<String, dynamic> jsonData) {
-    return Habit(
+    return Habit.withId(
+      sid: jsonData['id'],
       name: jsonData['name'],
       startTime: DateTime.parse(jsonData['startTime']),
       endTime: DateTime.parse(jsonData['endTime']),
@@ -20,6 +26,7 @@ class Habit{
   }
 
   static Map<String, dynamic> toMap(Habit habit) => {
+    'id' : habit.sid ?? 10000,
     'name' : habit.name,
     'startTime' : habit.startTime.toString(),
     'endTime' : habit.endTime.toString(),
@@ -49,11 +56,33 @@ class HabitSP{
       return habits;
     }
   }
+
+  static getCount() async{
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final int? i = prefs.getInt('counter');
+    if(i != null){
+      return i;
+    }
+    return 10000;
+  }
+
+  static setCount(int i) async{
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.setInt('counter', i);
+  }
 }
 
 enum InterestCategory {
-  sports,
   learning,
-  reading,
-  movies,
+  diary,
+  hiking,
+  nap,
+  yoga,
+  music,
+  computer,
 }
+
+Map<InterestCategory, String> s = {for (var tag in InterestCategory.values)
+  tag: 'assets/images/${tag.toString().split('.').last}.png'};

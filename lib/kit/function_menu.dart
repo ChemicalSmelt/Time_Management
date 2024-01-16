@@ -18,6 +18,7 @@ class _FunctionMenuState extends State<FunctionMenu>{
   @override
   void initState(){
     super.initState();
+
     _list = <Widget>[
       UserAccountsDrawerHeader(
         accountName: Text("ABC"),
@@ -81,18 +82,6 @@ class _FunctionMenuState extends State<FunctionMenu>{
         },
       ),
       ListTile(
-        leading: CircleAvatar(child: Text("B")),
-        title: Text('Bob'),
-        subtitle: Text("Click to start talk"),
-        onTap: () => {debugPrint('Bob')},
-      ),
-      ListTile(
-        leading: CircleAvatar(child: Text("C")),
-        title: Text('Cindy'),
-        subtitle: Text("Click to start talk"),
-        onTap: () => {debugPrint('Cindy')},
-      ),
-      ListTile(
         leading: const Icon(Icons.chrome_reader_mode),
         title: const Text('App介紹'),
         subtitle: const Text("使用方式與介紹"),
@@ -108,6 +97,10 @@ class _FunctionMenuState extends State<FunctionMenu>{
       ),
       const AboutListTile(
         child: Text("About this App"),
+        applicationIcon: FlutterLogo(),
+        applicationName: '時間管理App',
+        applicationVersion: '01 2024',
+        applicationLegalese: '\u{a9} 2024 NKUST 期末作業',
         icon: Icon(Icons.info),
       )
     ];
