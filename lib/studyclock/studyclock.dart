@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
-import 'schedule_list/schedule_list.dart';
-import '../kit/function_menu.dart';
-import 'to-do_list/to-do_list.dart';
-import 'personal_habit/personal_habit.dart';
 
-class Schedule extends StatefulWidget{
-  final String title = "行程管理";
-  const Schedule({super.key});
+import '../kit/function_menu.dart';
+import 'tomato/tomato.dart';
+import 'work_time/work_time.dart';
+
+class StudyClock extends StatefulWidget{
+  final String title = "時鐘管理";
+  const StudyClock({super.key});
   @override
-  State<Schedule> createState() => _ScheduleState();
+  State<StudyClock> createState() => _ClockState();
 }
 
-class _ScheduleState extends State<Schedule> with SingleTickerProviderStateMixin{
+class _ClockState extends State<StudyClock> with SingleTickerProviderStateMixin{
   TabController ?_controller;
   var _tabs = <Tab>[];
 
   @override
   void initState(){
     super.initState();
-    _controller = TabController(initialIndex: 0, length: 3, vsync: this);
+    _controller = TabController(initialIndex: 0, length: 2, vsync: this);
     _tabs = <Tab>[
-      const Tab(text: "行程列表",),
-      const Tab(text: "待辦事項",),
-      const Tab(text: "個人習慣",),
+      const Tab(text: "番茄鐘",),
+      const Tab(text: "工昨時間倒數",),
     ];
   }
 
@@ -43,13 +42,10 @@ class _ScheduleState extends State<Schedule> with SingleTickerProviderStateMixin
           controller: _controller,
           children: const <Widget>[
             Center(
-              child: ScheduleList(),
+              child: PomodoroTimer(),
             ),
             Center(
-              child: TodoList(),
-            ),
-            Center(
-              child: PersonalHabit(),
+              child: WorkTime(),
             ),
           ]
       ),

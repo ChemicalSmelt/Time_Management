@@ -1,13 +1,15 @@
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import '../schedule/schedule.dart';
+import '../../schedule/schedule.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
-import '../kit/function_menu.dart';
+import '../../kit/function_menu.dart';
 final player=AudioPlayer()..setReleaseMode(ReleaseMode.loop);
 
 
 class PomodoroTimer extends StatefulWidget {
+
+  const PomodoroTimer({super.key});
   @override
   _PomodoroTimerState createState() => _PomodoroTimerState();
 }
@@ -142,7 +144,6 @@ class _PomodoroTimerState extends State<PomodoroTimer> {
 
         title: const Text('Pomodoro Timer'),
       ),
-      drawer: const FunctionMenu(),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

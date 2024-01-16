@@ -6,6 +6,8 @@ import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'schedule/personal_habit/personal_habit.dart';
+
 
 void main() {
   initializeDateFormatting().then((_) => runApp(const MyApp()));
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
-      home: const Schedule(),
+      home: Schedule(),
     );
   }
 }

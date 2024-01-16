@@ -30,12 +30,14 @@ class _WorldClockState extends State<WorldClock> {
       now.toLocal().add(Duration(hours: 8)),
       now.toLocal().add(Duration(hours: 9)),
     ];
-
-    setState(() {
-      for (int i = 0; i < cities.length; i++) {
-        times[i] = '${cityTimes[i].hour}:${cityTimes[i].minute}:${cityTimes[i].second}';
-      }
-    });
+    if (mounted) {
+      setState(() {
+        for (int i = 0; i < cities.length; i++) {
+          times[i] =
+          '${cityTimes[i].hour}:${cityTimes[i].minute}:${cityTimes[i].second}';
+        }
+      });
+    }
   }
 
   @override
@@ -53,7 +55,7 @@ class _WorldClockState extends State<WorldClock> {
           children: <Widget>[
             Text(
               cities[selectedIndex],
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 60.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../schedule/schedule.dart';
-import '../studycloock/tomato.dart';
+import '../studyclock/studyclock.dart';
 import '../shift/shift_schedule.dart';
 import '../clock/clock.dart';
 class FunctionMenu extends StatefulWidget{
@@ -37,13 +37,13 @@ class _FunctionMenuState extends State<FunctionMenu>{
       ),
       ListTile(
         leading: const Icon(Icons.access_time),
-        title: const Text('學習時鐘'),
-        subtitle: const Text("番茄鐘"),
+        title: const Text('學習/工作時鐘'),
+        subtitle: const Text("番茄鐘、工作"),
         onTap: () => {
           Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
-              builder: (context) => PomodoroTimer(),
+              builder: (context) => const StudyClock(),
             ),
                 (route) => false,
           )
