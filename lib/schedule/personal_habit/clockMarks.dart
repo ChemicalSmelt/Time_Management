@@ -16,17 +16,17 @@ class ClockMarksPainter extends CustomPainter {
     double radius = size.width / 2;
     Offset center = Offset(size.width / 2, size.height / 2);
 
-    double markRadius = radius + 145; // 調整刻度的半徑
-    double markLength = 20.0; // 調整刻度的長度
+    double markRadius = radius + 145;
+    double markLength = 20.0;
 
-    // 繪製時鐘刻度
+
     Paint markPaint = Paint()
       ..color = Colors.black
       ..strokeWidth = 5.0
       ..style = PaintingStyle.stroke;
 
     for (int i = 0; i < 12; i++) {
-      double angle = (i * 30) * (math.pi / 180); // 每個刻度30度
+      double angle = (i * 30) * (math.pi / 180);
       double startX = center.dx + markRadius * math.cos(angle);
       double startY = center.dy + markRadius * math.sin(angle);
 

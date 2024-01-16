@@ -93,7 +93,7 @@ class IntroductionScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 16),
-                    Padding(padding:EdgeInsets.only(left:60.0),
+                    Padding(padding:EdgeInsets.only(left:77.0),
                       child:ElevatedButton(
                         onPressed: () {
                           this.showAlertDialog(context,1);
@@ -146,20 +146,21 @@ class IntroductionScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: () {
-                        this.showAlertDialog(context,2);
-
-                      },
-                      child: Icon(
-                        Icons.smart_display,
-                        size: 45,
+                    Padding(padding:EdgeInsets.only(left:15.0),
+                      child:ElevatedButton(
+                        onPressed: () {
+                          this.showAlertDialog(context,2);
+                        },
+                        child: Icon(
+                          Icons.smart_display,
+                          size: 45,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          shadowColor: Colors.transparent,
+                          padding: EdgeInsets.symmetric(horizontal:0, vertical: 0),
+                        ),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        shadowColor: Colors.transparent,
-                        padding: EdgeInsets.symmetric(horizontal:0, vertical: 0),
-                      ),
-                    ),SizedBox(height: 5,width: 5,),
+                    ),
                   ],
                 ),
                 Padding(
@@ -202,7 +203,7 @@ class IntroductionScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 16),
-                    Padding(padding:EdgeInsets.only(left:75.0),
+                    Padding(padding:EdgeInsets.only(left:90.0),
                       child:ElevatedButton(
                         onPressed: () {
                           this.showAlertDialog(context,3);
@@ -251,7 +252,7 @@ class IntroductionScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 16),
-                    Padding(padding:EdgeInsets.only(left:60.0),
+                    Padding(padding:EdgeInsets.only(left:75.0),
                       child:ElevatedButton(
                         onPressed: () {
                           this.showAlertDialog(context,4);
@@ -269,7 +270,7 @@ class IntroductionScreen extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding:EdgeInsets.only(left:35.0),
+                  padding:EdgeInsets.only(left:34.0),
                   child:Column(
                     children: [
                       Text(
@@ -303,16 +304,184 @@ class IntroductionScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(height: 16),
+                    Padding(padding:EdgeInsets.only(left:75.0),
+                      child:ElevatedButton(
+                        onPressed: () {
+                          this.showAlertDialog(context,5);
+                        },
+                        child: Icon(
+                          Icons.smart_display,
+                          size: 45,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          shadowColor: Colors.transparent,
+                          padding: EdgeInsets.symmetric(horizontal:0, vertical: 0),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
+
                 Padding(
-                  padding:EdgeInsets.only(left:35.0),
+                  padding:EdgeInsets.only(left:20.0),
                   child:Column(
                     children: [
+                      Text(
+                        '       1.設定個人習慣',
+                        style: TextStyle(fontSize: 16),
+                      ),
 
+                      Text(
+                        '               2.可設定多樣的習慣',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        '3.即時通知',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        '       4.分早上與晚上',
+                        style: TextStyle(fontSize: 16),
+                      ),
                     ],
                   ),
 
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 15.0, // 設定圓點的直徑
+                      height: 15.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black, // 設定圓點的顏色
+                      ),
+                    ),
+                    Text(
+                      '學習時鐘(工作時間):',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: () {
+                        this.showAlertDialog(context,6);
+
+                      },
+                      child: Icon(
+                        Icons.smart_display,
+                        size: 45,
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        shadowColor: Colors.transparent,
+                        padding: EdgeInsets.symmetric(horizontal:0, vertical: 0),
+                      ),
+                    ),SizedBox(height: 5,width: 5,),
+
+                  ],
+
+                ),
+                Padding(
+                  padding:EdgeInsets.only(left: 80.0),
+                  child:Column(
+                    children: [
+                      Text(
+                        '1.效率工作',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        '2.自訂時間',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 15.0, // 設定圓點的直徑
+                      height: 15.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black, // 設定圓點的顏色
+                      ),
+                    ),
+                    Text(
+                      '碼表:',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(height: 16),
+                    Padding(padding:EdgeInsets.only(left:105.0),
+                      child:ElevatedButton(
+                        onPressed: () {
+                          this.showAlertDialog(context,7);
+
+                        },
+                        child: Icon(
+                          Icons.smart_display,
+                          size: 45,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          shadowColor: Colors.transparent,
+                          padding: EdgeInsets.symmetric(horizontal:0, vertical: 0),
+                        ),
+                      ),
+                    ),
+                  ],
+
+                ),
+                Padding(
+                  padding:EdgeInsets.only(left: 80.0),
+                  child:Column(
+                    children: [
+                      Text(
+                        '1.計算時間',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 15.0, // 設定圓點的直徑
+                      height: 15.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black, // 設定圓點的顏色
+                      ),
+                    ),
+                    Text(
+                      '世界時鐘:',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(height: 16),
+                    Padding(padding:EdgeInsets.only(left:75.0),
+                      child:ElevatedButton(
+                        onPressed: () {
+                          this.showAlertDialog(context,8);
+                        },
+                        child: Icon(
+                          Icons.smart_display,
+                          size: 45,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          shadowColor: Colors.transparent,
+                          padding: EdgeInsets.symmetric(horizontal:0, vertical: 0),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding:EdgeInsets.only(left: 80.0),
+                  child:Column(
+                    children: [
+                      Text(
+                        '1.得知不同區域時間',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

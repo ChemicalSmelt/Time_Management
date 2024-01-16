@@ -12,7 +12,7 @@ class AddHabit{
       context: context,
       builder: (BuildContext context) {
         return Container(
-          width: MediaQuery.of(context).size.width, // 填滿整個畫面的寬度
+          width: MediaQuery.of(context).size.width,
           height: 200.0,
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -23,7 +23,7 @@ class AddHabit{
               ),
               SizedBox(height: 20.0),
               Transform.scale(
-                scale: 1.5, // 養成按鈕的放大倍數
+                scale: 1.5,
                 child: ElevatedButton(
                   onPressed: () async {
                     Navigator.pop(context);
@@ -36,7 +36,7 @@ class AddHabit{
                     habitCompleter.complete(habit);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green, // 修改按鈕顏色
+                    backgroundColor: Colors.green,
                   ),
                   child: Text(
                     '養成習慣',
@@ -46,14 +46,18 @@ class AddHabit{
               ),
               SizedBox(height: 10.0),
               Transform.scale(
-                scale: 1.5, // 戒除按鈕的放大倍數
+                scale: 1.5,
                 child: ElevatedButton(
                   onPressed: () {
-                    // 戒除習慣的操作
-                    Navigator.pop(context); // 關閉滑動視窗
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('有重複的時間喔!!!'),
+                      ),
+                    );
+                    Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red, // 修改按鈕顏色
+                    backgroundColor: Colors.red,
                   ),
                   child: Text(
                     '戒除習慣',
@@ -149,7 +153,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                     interestCategory: InterestCategory.values.firstWhere((e) => e.toString() == 'InterestCategory.$selectedCategory'),
                 );
 
-                // 使用 pop 返回數據
+                // 使用 pop 返回
                 Navigator.pop(context, newHabit);
               },
               child: Text('Add Habit'),

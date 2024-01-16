@@ -52,7 +52,6 @@ class _PersonalHabitState extends State<PersonalHabit> {
         });
       }
     });
-    //載入
   }
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class _PersonalHabitState extends State<PersonalHabit> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              // 上方左右滑動的視窗
+
               SizedBox(
                 height: 100.0,
                 child: Stack(
@@ -162,10 +161,7 @@ class _PersonalHabitState extends State<PersonalHabit> {
                       );
                     }
                   }
-            /*habits.add(Habit(name: 'new', startTime: DateTime(0,0,0,3,), endTime: DateTime(0,0,0,4,), interestCategory: InterestCategory.reading));
-            setState(() {
 
-            });*/
               },
                 tooltip: 'Increment',
                 child: Icon(Icons.add),

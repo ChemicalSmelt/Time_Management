@@ -21,7 +21,7 @@ class _FunctionMenuState extends State<FunctionMenu>{
 
     _list = <Widget>[
       UserAccountsDrawerHeader(
-        accountName: Text("ABC"),
+        accountName: Text("User"),
         accountEmail: Text("address@example.com"),
         currentAccountPicture: Icon(Icons.person),
       ),

@@ -15,14 +15,13 @@ class PieChartSample3 extends StatefulWidget {
     List<Habit> temp= [];
     sort();
     DateTime start = DateTime(
-      0,   // 使用當前年份
-      0,  // 使用當前月份
-      0,    // 使用當前日
-      0,         // 設定為中午 12 點
-      0,         // 設定分鐘為 30
-      0,          // 設定秒為 0
-      0,          // 設定毫秒為 0
-      0,          // 設定微秒為 0
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
     );
     DateTime amEnd = DateTime(0,0,0,11,59);
     DateTime pmStart = DateTime(0,0,0,12,0);
