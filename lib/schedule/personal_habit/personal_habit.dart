@@ -19,7 +19,7 @@ class PersonalHabit extends StatefulWidget{
 class _PersonalHabitState extends State<PersonalHabit> {
   final PageController pageController = PageController(viewportFraction: 0.8);
   int page = 0;
-  final List<Habit> habits = [
+  List<Habit> habits = [
     Habit(name: 'Hello', startTime: DateTime(0,0,0,1,), endTime: DateTime(0,0,0,2,), interestCategory: InterestCategory.reading),
     Habit(name: 'Hello2', startTime: DateTime(0,0,0,2,), endTime: DateTime(0,0,0,3,), interestCategory: InterestCategory.reading),
     Habit(name: 'test', startTime: DateTime(0,0,0,11), endTime: DateTime(0,0,0,13), interestCategory: InterestCategory.learning),
@@ -30,6 +30,19 @@ class _PersonalHabitState extends State<PersonalHabit> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    HabitSP.load().then((values){
+      if(values != null){
+        habits = values;
+        setState(() {
+
+        });
+      }else{
+        habits = [];
+        setState(() {
+
+        });
+      }
+    });
     //載入
   }
   @override
@@ -121,6 +134,7 @@ class _PersonalHabitState extends State<PersonalHabit> {
               }
               if (flag) {
                 habits.add(habit);
+                await HabitSP.store(habits);
                 setState(() {
 
                 });
