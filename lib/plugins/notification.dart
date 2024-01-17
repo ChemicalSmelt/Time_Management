@@ -75,6 +75,8 @@ class NotificationPlugin {
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
   }
+
+
   Future<void> scheduleDayNotification(int id ,String title,
       String body, int hours, int minutes) async {
     await np.zonedSchedule(

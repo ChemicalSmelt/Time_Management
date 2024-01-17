@@ -18,7 +18,7 @@ class PersonalHabit extends StatefulWidget{
 }
 
 class _PersonalHabitState extends State<PersonalHabit> {
-  final PageController pageController = PageController(viewportFraction: 0.8);
+  final PageController pageController = PageController(viewportFraction: 0.8, initialPage: 0);
   int page = 0;
   List<Habit> habits = [
     Habit(name: 'Hello', startTime: DateTime(0,0,0,1,), endTime: DateTime(0,0,0,2,), interestCategory: InterestCategory.learning),
@@ -68,7 +68,12 @@ class _PersonalHabitState extends State<PersonalHabit> {
                       controller: pageController,
                       scrollDirection: Axis.horizontal,
                       children: habits.map((Habit habit) {
-                        return Center(child: Text(habit.name));
+                        return Center(child: ListTile(
+                            title: Text(habit.name, textAlign: TextAlign.center,),
+                        subtitle: Text(
+                            '${habit.startTime.hour}:${habit.startTime.minute} - ${habit.endTime.hour}:${habit.endTime.minute}',
+                            textAlign: TextAlign.center,
+                        )),);
                       }).toList(),
                       onPageChanged: (int page){
                         this.page = page;
@@ -113,7 +118,7 @@ class _PersonalHabitState extends State<PersonalHabit> {
               SizedBox(height:  20,),
               // 中間圓餅圖
               Container(
-                child: PieChartSample3(habits: habits, selectHabit: habits.isEmpty ? '' : habits[page].name,)
+                child: PieChartSample3(habits: habits, selectHabit: habits.length <= page ? '' : habits[page].name,)
               ),
             ],
           )

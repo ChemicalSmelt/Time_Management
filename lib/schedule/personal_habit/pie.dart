@@ -103,7 +103,7 @@ class PieChartSample3 extends StatefulWidget {
 
 class PieChartSample3State extends State<PieChartSample3> {
   int touchedIndex = 0;
-  PageController _pageController = PageController(viewportFraction: 1.1);
+  late PageController _pageController;
   List<Padding> _sections = [];
   int currentPage = 0; // 預設頁面為第一頁
 
@@ -156,13 +156,41 @@ class PieChartSample3State extends State<PieChartSample3> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    if(widget.habits.isNotEmpty){
+      currentPage = 1;
+      for(Habit h in widget.habitsAM){
+        if(h.name == widget.selectHabit){
+          currentPage = 0;
+          break;
+        }
+      }
+    }
+    _pageController = PageController(viewportFraction: 1.1, initialPage: currentPage);
   }
+
+  bool init = false;
 
   @override
   Widget build(BuildContext context) {
     _sections = [];
     _sections.add(getPie(widget.habitsAM));
     _sections.add(getPie(widget.habitsPM));
+
+    if(widget.habits.isNotEmpty && init){
+      currentPage = 1;
+      for(Habit h in widget.habitsAM){
+        if(h.name == widget.selectHabit){
+          currentPage = 0;
+          break;
+        }
+      }
+      _pageController.jumpToPage(currentPage);
+      setState(() {
+
+      });
+    }
+    init = true;
+
 
     return SizedBox(
       height: 400.0,
@@ -185,7 +213,7 @@ class PieChartSample3State extends State<PieChartSample3> {
             },
             children: _sections,
           ),
-          Positioned(
+          /*Positioned(
             left: 0,
             top: 0,
             bottom: 0,
@@ -214,7 +242,7 @@ class PieChartSample3State extends State<PieChartSample3> {
                 }
               },
             ),
-          ),
+          ),*/
         ],
       ),
     );
